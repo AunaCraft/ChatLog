@@ -17,7 +17,7 @@ public class ChatLogService {
         this.repository = repository;
     }
 
-    public ChatLog loadChatLog(Long id) {
+    public ChatLog loadChatLog(String id) {
         return repository.findById(id).orElseThrow(ChatLogNotFoundException::new);
     }
 

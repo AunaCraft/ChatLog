@@ -45,7 +45,7 @@ public class ChatLogTest {
 
     @Test
     public void get() {
-        ChatLog log = this.repository.findById(1L).orElseThrow(() -> new NullPointerException("Chat log is null"));
+        ChatLog log = this.repository.findById("dsa").orElseThrow(() -> new NullPointerException("Chat log is null"));
         System.out.println(log.getId());
         System.out.println("Messages:");
         for (ChatMessage message : log.getMessages()) {

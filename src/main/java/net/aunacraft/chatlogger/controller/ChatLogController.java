@@ -1,5 +1,6 @@
 package net.aunacraft.chatlogger.controller;
 
+import com.fasterxml.jackson.core.JsonParseException;
 import net.aunacraft.chatlogger.entities.ChatLog;
 import net.aunacraft.chatlogger.entities.ChatMessage;
 import net.aunacraft.chatlogger.exceptions.ChatLogNotFoundException;
@@ -21,7 +22,7 @@ public class ChatLogController {
     }
 
     @GetMapping("/get")
-    public ChatLog getChatLog(@RequestParam("id") Long id) {
+    public ChatLog getChatLog(@RequestParam("id") String id) {
         return service.loadChatLog(id);
     }
 
@@ -33,6 +34,11 @@ public class ChatLogController {
     @ExceptionHandler(ChatLogNotFoundException.class)
     public ResponseEntity<?> handleNotFound() {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(JsonParseException.class)
+    public ResponseEntity<?> handleJsonParseError(JsonParseException e) {
+        return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
 
