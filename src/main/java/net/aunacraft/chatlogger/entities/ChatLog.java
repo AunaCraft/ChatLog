@@ -2,6 +2,7 @@ package net.aunacraft.chatlogger.entities;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,8 +13,9 @@ import java.util.List;
 public class ChatLog {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(generator = ChatLogIDGenerator.generatorName)
+    @GenericGenerator(name = ChatLogIDGenerator.generatorName, strategy = "net.aunacraft.chatlogger.entities.ChatLogIDGenerator")
+    private String id;
 
 
     @ElementCollection
@@ -27,11 +29,11 @@ public class ChatLog {
         this.messages = messages;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
