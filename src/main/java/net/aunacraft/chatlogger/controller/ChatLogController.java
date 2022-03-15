@@ -28,7 +28,6 @@ public class ChatLogController {
 
     @GetMapping("/get/{logID}")
     public ResponseEntity<ChatLog> getChatLog(@PathVariable String logID) {
-        System.out.println("Rewuerst: " + logID);
         return ResponseEntity.ok(service.loadChatLog(logID));
     }
 
