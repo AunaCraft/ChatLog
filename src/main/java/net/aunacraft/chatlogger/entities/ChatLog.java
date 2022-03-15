@@ -20,7 +20,7 @@ public class ChatLog {
 
     @ElementCollection
     @CollectionTable(
-            name = "chat_logger_messages",
+            name = "chatLoggerMessages",
             joinColumns = @JoinColumn(name = "LOG_ID")
     )
     private List<ChatMessage> messages;
