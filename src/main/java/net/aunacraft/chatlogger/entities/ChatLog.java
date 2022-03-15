@@ -1,7 +1,7 @@
 package net.aunacraft.chatlogger.entities;
 
-import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.aunacraft.chatlogger.entities.generators.ChatLogIDGenerator;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
@@ -14,7 +14,7 @@ public class ChatLog {
 
     @Id
     @GeneratedValue(generator = ChatLogIDGenerator.generatorName)
-    @GenericGenerator(name = ChatLogIDGenerator.generatorName, strategy = "net.aunacraft.chatlogger.entities.ChatLogIDGenerator")
+    @GenericGenerator(name = ChatLogIDGenerator.generatorName, strategy = "net.aunacraft.chatlogger.entities.generators.ChatLogIDGenerator")
     private String id;
 
 

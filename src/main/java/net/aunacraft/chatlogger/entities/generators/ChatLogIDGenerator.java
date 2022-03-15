@@ -1,4 +1,4 @@
-package net.aunacraft.chatlogger.entities;
+package net.aunacraft.chatlogger.entities.generators;
 
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SharedSessionContractImplementor;

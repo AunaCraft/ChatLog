@@ -47,43 +47,51 @@ So here is a little overview of request you are able to make
 ### Get a ChatLog by ID
 
 Your HTML-Request:
-``GET http://<yourServer>:<yourPort>/chatlog/v1/get/?id=<logID>``
+``GET http://<yourServer>:<yourPort>/chatlog/v1/get/{logID-here}/``
 
 Response Example:
 ````json
 {
   "id": "e24026ec",
-  "messages": [
+  "messages": 
+  [
     {
       "time": 1647281712369,
-      "uuid": "dsad-dsadf-dsadsa-dsadas",
+      "uuid": "6d34d7c6-a73a-4065-af94-60c977329c40",
       "displayName": "FebanUHD",
-      "message": "Test1"
+      "message": "Hello, this is a example message!!!"
+    },
+    {
+      "time": 123454678910,
+      "uuid": "859c974c-2e32-4599-ac2e-05c7f06aead8",
+      "displayName": "ytendx",
+      "message": "Test"
     }
   ]
 }
 ````
 ### Create a ChatLog
 
-Your HTML-Request: `POST http://localhost:8080/chatlog/v1/create`
+To create a chatlog, you need an API key and then send a post request.
+Your POST-Request: `POST http://<yourServer>:<yourPort>/chatlog/v1/create/{api-key-herer}/`
 
 <!-- TODO | Make this description -->
-```yaml
+```yml
 Content-Type: application/json
-Body: ChatMessage-List
-Example:
+Body-Type: List of Chatmessage objects
+Example Body:
 [
     {
       "time": 1647281712369,
-      "uuid": "dsad-dsadf-dsadsa-dsadas",
+      "uuid": "6d34d7c6-a73a-4065-af94-60c977329c40",
       "displayName": "FebanUHD",
-      "message": "Test1"
+      "message": "Hello, this is a example message!!!"
     },
     {
-      "time": 1647281712369,
-      "uuid": "dsad-dsadf-dsadsa-dsadas",
+      "time": 123454678910,
+      "uuid": "859c974c-2e32-4599-ac2e-05c7f06aead8",
       "displayName": "ytendx",
-      "message": "Test2"
+      "message": "Test"
     }
-] 
+]
 ```
