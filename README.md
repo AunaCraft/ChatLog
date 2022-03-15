@@ -95,3 +95,15 @@ Example Body:
     }
 ]
 ```
+
+## PR and Issues
+
+We welcome every PR or Issue created and will look forward to review and implement them. 
+But please bind to some rules:
+
+<ul>
+  <li>Please consider relying on <a href="https://www.oracle.com/technetwork/java/codeconventions-150003.pdf">java conventions</a> when opening a pr</li>
+  <li>Please consider relying on <a href="https://google.github.io/styleguide/javaguide.html">google java style guide</a> too</li>
+  <li>In general please consider having a good and readable code style</li>
+  <li>We welcome if you document your code with comments and <a href="https://de.wikipedia.org/wiki/Javadoc">java documentary</a></li>
+</ul>
