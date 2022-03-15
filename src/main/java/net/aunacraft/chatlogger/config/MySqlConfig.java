@@ -35,6 +35,7 @@ public class MySqlConfig {
         int port = 3306;
         String userName = "root";
         String password = "";
+        String database = "system";
 
         try {
             reader = new FileReader(file);
@@ -43,6 +44,7 @@ public class MySqlConfig {
             port = Integer.parseInt(properties.getProperty("port"));
             userName = properties.getProperty("username");
             password = properties.getProperty("password");
+            database = properties.getProperty("database");
         }catch (Exception e) {
             FileWriter writer = null;
             try {
@@ -52,6 +54,7 @@ public class MySqlConfig {
                 properties.setProperty("port", String.valueOf(port));
                 properties.setProperty("username", userName);
                 properties.setProperty("password", password);
+                properties.setProperty("database", database);
                 writer = new FileWriter(file);
                 properties.store(writer, "Config");
                 writer.flush();
@@ -70,7 +73,7 @@ public class MySqlConfig {
 
         DataSourceBuilder<?> dataSourceBuilder = DataSourceBuilder.create();
         dataSourceBuilder.driverClassName("com.mysql.cj.jdbc.Driver");
-        dataSourceBuilder.url("jdbc:mysql://" + host + ":" + port + "/system");
+        dataSourceBuilder.url("jdbc:mysql://" + host + ":" + port + "/" + database);
         dataSourceBuilder.username(userName);
         dataSourceBuilder.password(password);
         return dataSourceBuilder.build();
