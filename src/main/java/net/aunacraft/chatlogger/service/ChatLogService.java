@@ -17,12 +17,22 @@ public class ChatLogService {
         this.repository = repository;
     }
 
+    /**
+        Get an chatlog by chatlog id wich is already in the repo
+        <p>
+        @throw ChatLogNotFoundException
+    **/
     public ChatLog loadChatLog(String id) {
         return repository.findById(id).orElseThrow(ChatLogNotFoundException::new);
     }
 
+    /**
+        This method provides you a translation from a list of messages to an chatlog 
+        it also gets saved to the repository where you are able to load it out of (ChatLog Cache)
+    **/
     public ChatLog createChatLog(List<ChatMessage> messages) {
         ChatLog chatLog = new ChatLog(messages);
+        // Put it into repository cache
         this.repository.save(chatLog);
         return chatLog;
     }
